@@ -1,0 +1,13 @@
+@forward 'fontSize'
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap')
+$font-family:(font-family: Quicksand, font-optical-sizing: auto, font-weight: 400, font-style: normal)
+
+
+=generate-font-family($font)
+  --f-family: #{map-get($font, font-family)}
+  --f-optical-sizing: #{map-get($font, font-optical-sizing)}
+  --f-weight: #{map-get($font, font-weight)}
+  --f-style: #{map-get($font, font-style)}
+
+@function getFontFamily($name)
+  @return var(--f-#{$name})

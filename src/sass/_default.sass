@@ -1,0 +1,133 @@
+@use 'color/colors' as *
+@use 'font/font' as *
+@use 'other/mediaQuery' as *
+
+:root
+    /** Light theme colors **/
+    +generate-color($light-theme)
+
+    /** Normal font size **/
+    +generate-font-sizes($font-size-normal)
+
+    /** Max Width media query **/
+    +generate-media-queries($mq-mw-sizes)
+
+    /** Font family **/
+    +generate-font-family($font-family)
+
+    /** Msg alert colors **/
+    +generate-color($msg-color)
+
+/** Set media query for small-mobile  **/
++set-media-query(getMediaQueryMW(sMobile))
+    :root
+        /** Set font size for small-mobile  **/
+        +generate-font-sizes($font-size-small)
+
+/** Set media query for mobile  **/
++set-media-query(getMediaQueryMW(mobile))
+    :root
+        /** Set font size for medium  **/
+        +generate-font-sizes($font-size-medium)
+
+/** Set media query for tablet  **/
++set-media-query(getMediaQueryMW(tablet))
+    :root
+        /** Set font size for nomal  **/
+        +generate-font-sizes($font-size-normal)
+    
+
+/** Set media query for desktop  **/
++set-media-query(getMediaQueryMW(desktop))
+    :root
+        /** Set font size for large  **/
+        +generate-font-sizes($font-size-large)
+
+/** Set media query for large-desktop  **/     
++set-media-query(getMediaQueryMW(lgDesktop))
+    :root
+        /** Set font size for mobile extra-large **/
+        +generate-font-sizes($font-size-extra-large)
+
+/** Dark Theme **/
+@media (prefers-color-scheme: dark)
+    :root
+        +generate-color($dark-theme)
+
+*,
+*::before,
+*::after
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: getFontFamily(family)
+    font-optical-sizing: getFontFamily(optical-sizing)
+    font-weight: getFontFamily(weight)
+    font-style: getFontFamily(style)
+
+
+body
+    background: getColor(background)
+    color: getColor(text)
+
+.container
+    width: 80%
+    max-width: 100%
+    margin: 2rem auto
+    display: flex
+    flex-direction: column
+
+.card
+    width: 30%
+    max-width: 100%
+    margin: 5rem auto
+    display: flex
+    flex-direction: column
+    background-color: getColor(secondary)
+    color: getColor(secondary-text)
+    border-radius: .5rem
+    overflow: hidden
+    overflow-y: auto
+    
+    > .title
+        font-weight: 700
+        margin: 0
+        padding: 0 1.2rem
+        background-color: getColor(primary)
+        color: getColor(primary-text)
+    
+    > .sub-title
+        font-weight: 500
+        font-size: getFontSize(medium)
+        margin: 0 .2rem
+        padding: 0 1rem
+    
+    > .content
+        font-size: getFontSize(normal)
+        text-align: justifys
+        margin: .2rem
+        padding: 1rem
+
+/** Input type text pickers sytle **/
+
+/* Estilos para diferentes tipos de inputs */
+input[type="month"],
+input[type="time"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+input[type="email"]
+    width: -webkit-fill-available
+    margin: .2rem
+    padding: 0.5rem 0.75rem
+    border: .1rem solid getColor(text)
+    border-radius: .2rem
+    
+
+    &:focus
+        outline: none

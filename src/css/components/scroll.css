@@ -1,0 +1,43 @@
+/** Scrollbar cofig **/
+:root {
+  --scrollbar-size: 0.8rem;
+  --scrollbar-track-color: #141480;
+  --scrollbar-thumb-color: #3861BA;
+  --scrollbar-thumb-hover-color: #274396;
+  --scrollbar-border-radius: 1rem;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+*::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-color);
+  border-radius: var(--scrollbar-border-radius);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-color);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --scrollbar-size: 0.8rem;
+    --scrollbar-track-color: #141480;
+    --scrollbar-thumb-color: #274396;
+    --scrollbar-thumb-hover-color: #3256A6;
+    --scrollbar-border-radius: 1rem;
+  }
+}

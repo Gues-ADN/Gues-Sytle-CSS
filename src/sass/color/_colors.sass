@@ -1,0 +1,22 @@
+// Light theme
+$light-theme:(background: #FFFFFF,primary: #3256A6,secondary: #3861BA,accent: #FFFFFF,neutral: #FFFFFF,text: #141440,primary-text: #FFFFFF,secondary-text: #FFFFFF,accent-text: #000000,neutral-text: #595959)
+
+$dark-theme:(background: #141440,primary: #141480,secondary: #274396,accent: #3256A6,neutral: #3861BA,text: #FFFFFF,primary-text: #FFFFFF,secondary-text: #FFFFFF,accent-text: #FFFFFF,neutral-text: #FFFFFF)
+
+$msg-color:(success: #70FF6E,info: #6ECCFF,warning: #FFE894,danger: #FF7365,msg-txt-b: #000000,msg-txt-w: #FFFFFF)
+
+// Media query mixins theme color
+=generate-color($colors)
+  @each $variable-name, $color in $colors
+    --#{$variable-name}: #{$color}
+
+@function getColor($color-name)
+  @return var(--#{$color-name})
+
+// Extract colors from the active theme
+// $primary: map-get($active-theme-color, primary)
+// $secondary: map-get($active-theme-color, secondary)
+// $accent: map-get($active-theme-color, accent)
+// $neutral: map-get($active-theme-color, neutral)
+// $background: map-get($active-theme-color, background)
+// $text: map-get($active-theme-color, text)

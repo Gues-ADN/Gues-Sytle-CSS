@@ -1,0 +1,33 @@
+// Font sizes for different themes
+$font-size-small: (small: 12px, medium: 14px, normal: 16px, large: 18px, extra-large: 20px)
+
+$font-size-medium: (small: 14px, medium: 16px, normal: 18px, large: 20px, extra-large: 22px)
+
+$font-size-normal: (small: 16px, medium: 18px, normal: 20px, large: 24px, extra-large: 28px)
+
+$font-size-large: (small: 18px, medium: 20px, normal: 24px, large: 28px, extra-large: 32px)
+
+$font-size-extra-large: (small: 20px, medium: 22px, normal: 28px, large: 32px, extra-large: 36px)
+
+// Función para convertir px a rem
+@function px-to-rem($px, $base: 16px)
+  @return calc($px / $base) * 1rem
+
+=generate-font-sizes($font-size)
+  --fs-small: #{px-to-rem(map-get($font-size, small))}
+  --fs-medium: #{px-to-rem(map-get($font-size, medium))}
+  --fs-normal: #{px-to-rem(map-get($font-size, normal))}
+  --fs-large: #{px-to-rem(map-get($font-size, large))}
+  --fs-extra-large: #{px-to-rem(map-get($font-size, extra-large))}
+
+
+@function getFontSize($size-name)
+  @return var(--fs-#{$size-name})
+
+
+// // Extract font sizes
+// $small: map-get($active-font-size, small)
+// $medium: map-get($active-font-size, medium)
+// $normal: map-get($active-font-size, normal)
+// $large: map-get($active-font-size, large)
+// $extra-large: map-get($active-font-size, extra-large)

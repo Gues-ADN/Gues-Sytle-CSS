@@ -1,0 +1,41 @@
+/** Scrollbar cofig **/
+$scrollbar-settings: (size: .8rem,track-color: #141480,thumb-color: #3861BA,thumb-hover-color: #274396,border-radius: 1rem)
+$scrollbar-settings-dark: (size: .8rem,track-color: #141480,thumb-color: #274396,thumb-hover-color: #3256A6,border-radius: 1rem)
+
+=generate-scrollbar($scrollbar-conf)
+  @each $variable-name, $scrollbar in $scrollbar-conf
+    --scrollbar-#{$variable-name}: #{$scrollbar}
+
+@function getScrollbar($scrollbar-name)
+  @return var(--scrollbar-#{$scrollbar-name})
+
+=custom-scrollbar()
+  .scrollbar-none
+    &::-webkit-scrollbar
+      display: none
+
+  *::-webkit-scrollbar
+    width: getScrollbar(size)
+
+  *::-webkit-scrollbar-track
+    background: getScrollbar(track-color)
+
+  *::-webkit-scrollbar-thumb
+    background: getScrollbar(thumb-color)
+    border-radius: getScrollbar(border-radius)
+
+    &:hover
+      background: getScrollbar(thumb-hover-color)
+
+  @supports not selector(::-webkit-scrollbar)
+    *
+      scrollbar-color: getScrollbar(thumb-color) getScrollbar(track-color)
+
+:root
+  +generate-scrollbar($scrollbar-settings)
+
++custom-scrollbar()
+
+@media (prefers-color-scheme: dark)
+  :root
+    +generate-scrollbar($scrollbar-settings-dark)

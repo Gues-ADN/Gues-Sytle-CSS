@@ -1,0 +1,203 @@
+/* ********************************************************************************************
+ * Gues v1.0.0 (https://gues.es/style-css)                                                    *
+ * Copyright 2024-2028 The Gues Authors                                                       *
+ * Licensed under Apache (https://github.com/Gues-AK/Gues-Sytle-CSS/blob/main/LICENSE)        *
+ * ********************************************************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+:root {
+  /** Light theme colors **/
+  --background: #FFFFFF;
+  --primary: #3256A6;
+  --secondary: #3861BA;
+  --accent: #FFFFFF;
+  --neutral: #FFFFFF;
+  --text: #141440;
+  --primary-text: #FFFFFF;
+  --secondary-text: #FFFFFF;
+  --accent-text: #000000;
+  --neutral-text: #595959;
+  /** Normal font size **/
+  --fs-small: 1rem;
+  --fs-medium: 1.125rem;
+  --fs-normal: 1.25rem;
+  --fs-large: 1.5rem;
+  --fs-extra-large: 1.75rem;
+  /** Max Width media query **/
+  --mw-sMobile: 320px;
+  --mw-mobile: 480px;
+  --mw-tablet: 768px;
+  --mw-desktop: 1024px;
+  --mw-lgDesktop: 1440px;
+  /** Font family **/
+  --f-family: Quicksand;
+  --f-optical-sizing: auto;
+  --f-weight: 400;
+  --f-style: normal;
+  /** Msg alert colors **/
+  --success: #70FF6E;
+  --info: #6ECCFF;
+  --warning: #FFE894;
+  --danger: #FF7365;
+  --msg-txt-b: #000000;
+  --msg-txt-w: #FFFFFF;
+}
+
+/** Set media query for small-mobile  **/
+@media (max-width: var(--mw-sMobile)) {
+  :root {
+    /** Set font size for small-mobile  **/
+    --fs-small: 0.75rem;
+    --fs-medium: 0.875rem;
+    --fs-normal: 1rem;
+    --fs-large: 1.125rem;
+    --fs-extra-large: 1.25rem;
+  }
+}
+/** Set media query for mobile  **/
+@media (max-width: var(--mw-mobile)) {
+  :root {
+    /** Set font size for medium  **/
+    --fs-small: 0.875rem;
+    --fs-medium: 1rem;
+    --fs-normal: 1.125rem;
+    --fs-large: 1.25rem;
+    --fs-extra-large: 1.375rem;
+  }
+}
+/** Set media query for tablet  **/
+@media (max-width: var(--mw-tablet)) {
+  :root {
+    /** Set font size for nomal  **/
+    --fs-small: 1rem;
+    --fs-medium: 1.125rem;
+    --fs-normal: 1.25rem;
+    --fs-large: 1.5rem;
+    --fs-extra-large: 1.75rem;
+  }
+}
+/** Set media query for desktop  **/
+@media (max-width: var(--mw-desktop)) {
+  :root {
+    /** Set font size for large  **/
+    --fs-small: 1.125rem;
+    --fs-medium: 1.25rem;
+    --fs-normal: 1.5rem;
+    --fs-large: 1.75rem;
+    --fs-extra-large: 2rem;
+  }
+}
+/** Set media query for large-desktop  **/     
+@media (max-width: var(--mw-lgDesktop)) {
+  :root {
+    /** Set font size for mobile extra-large **/
+    --fs-small: 1.25rem;
+    --fs-medium: 1.375rem;
+    --fs-normal: 1.75rem;
+    --fs-large: 2rem;
+    --fs-extra-large: 2.25rem;
+  }
+}
+/** Dark Theme **/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #141440;
+    --primary: #141480;
+    --secondary: #274396;
+    --accent: #3256A6;
+    --neutral: #3861BA;
+    --text: #FFFFFF;
+    --primary-text: #FFFFFF;
+    --secondary-text: #FFFFFF;
+    --accent-text: #FFFFFF;
+    --neutral-text: #FFFFFF;
+  }
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--f-family);
+  font-optical-sizing: var(--f-optical-sizing);
+  font-weight: var(--f-weight);
+  font-style: var(--f-style);
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+}
+
+.container {
+  width: 80%;
+  max-width: 100%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  width: 30%;
+  max-width: 100%;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary);
+  color: var(--secondary-text);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.card > .title {
+  font-weight: 700;
+  margin: 0;
+  padding: 0 1.2rem;
+  background-color: var(--primary);
+  color: var(--primary-text);
+}
+.card > .sub-title {
+  font-weight: 500;
+  font-size: var(--fs-medium);
+  margin: 0 0.2rem;
+  padding: 0 1rem;
+}
+.card > .content {
+  font-size: var(--fs-normal);
+  text-align: justifys;
+  margin: 0.2rem;
+  padding: 1rem;
+}
+
+/** Input type text pickers sytle **/
+/* Estilos para diferentes tipos de inputs */
+input[type=month],
+input[type=time],
+input[type=date],
+input[type=datetime-local],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=url],
+input[type=email] {
+  width: -webkit-fill-available;
+  margin: 0.2rem;
+  padding: 0.5rem 0.75rem;
+  border: 0.1rem solid var(--text);
+  border-radius: 0.2rem;
+}
+input[type=month]:focus,
+input[type=time]:focus,
+input[type=date]:focus,
+input[type=datetime-local]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=url]:focus,
+input[type=email]:focus {
+  outline: none;
+}
